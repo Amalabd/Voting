@@ -13,12 +13,11 @@ $DB_name= 'vote';
 $conn= mysqli_connect($host, $username, $password, $DB_name, $db_port);
        //mysqli_set_charset($conn, "utf8");
   
-       mysqli_select_db($conn,"vote") or die ("no database");       
+mysqli_select_db($conn,"vote") or die ("no database");       
 // ======= Check Connection============
        if(!$conn){
-echo mysqli_connect_error("Connection error") . mysqli_connect_error();
-
-}//else {echo "Successful connection";}
+die("Connection error" . mysqli_connect_error());
+}
        
         
 

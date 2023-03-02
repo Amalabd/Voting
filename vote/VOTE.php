@@ -76,14 +76,24 @@ include_once("mysql.php");
 
 if(isset($_POST['btn']))
 {
-  $message = "<h1>amal</h1>";
-  $user = $_POST['mail'];
+  $stmt = mysqli_prepare($conn , "INSERT INTO voters VALUES (?,?)");
+  mysqli_stmt_bind_param($stmt, "ss" , $id ,$user);
+
+  $user = filter_input(INPUT_POST , 'mail' , FILTER_SANITIZE_EMAIL);
   $id = $_POST['id'];
   $sql = "INSERT INTO voters (id,emails)
-     VALUES ('$id','$user')";
-  if (mysqli_query($conn, $sql)){
+          VALUES ('$id','$user')";
+
+     
+  if(filter_var($user, FILTER_VALIDATE_EMAIL)){
+    if(mysqli_stmt_execute($stmt)){
     header("Location: select.php");
+    }}else{
+    echo htmlspecialchars('<script>alert(" XXX NOT VALID EMAIL XXX ");</script>');
   }
+
+  ////////////////////////////////////////////////////////
+
   $query="SELECT * FROM voters WHERE emails='$user' ";
 
   $res=mysqli_query($conn,$query);
@@ -93,7 +103,7 @@ if(isset($_POST['btn']))
     $row = mysqli_fetch_assoc($res);
     if($user==isset($row['emails']))
     {
-            echo '<script>alert("you have already voted");</script>';
+            echo htmlspecialchars('<script>alert("you have already voted");</script>');
             
     }
   
