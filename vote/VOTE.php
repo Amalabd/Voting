@@ -76,34 +76,41 @@ include_once("mysql.php");
 
 if(isset($_POST['btn']))
 {
-  $stmt = mysqli_prepare($conn , "INSERT INTO voters VALUES (?,?)");
-  mysqli_stmt_bind_param($stmt, "ss" , $id ,$user);
-
+ $error1= " XXX NOT VALID EMAIL XXX ";
   $user = filter_input(INPUT_POST , 'mail' , FILTER_SANITIZE_EMAIL);
-  $id = $_POST['id'];
-  $sql = "INSERT INTO voters (id,emails)
-          VALUES ('$id','$user')";
+  $id = filter_input(INPUT_POST , 'id' , FILTER_SANITIZE_NUMBER_INT);
+  // to use prepared statment with bound parameter
+  $stmt= mysqli_prepare($conn, "INSERT INTO voters (id,emails) VALUES (?, ?)");
+  mysqli_stmt_bind_param($stmt, "ss", $id, $user);
+  mysqli_stmt_execute($stmt);
+  //$sql = "INSERT INTO voters (id,emails) VALUES ('$id','$user')";
 
      
   if(filter_var($user, FILTER_VALIDATE_EMAIL)){
     if(mysqli_stmt_execute($stmt)){
     header("Location: select.php");
     }}else{
-    echo htmlspecialchars('<script>alert(" XXX NOT VALID EMAIL XXX ");</script>');
+      // there is no need to use the function of htmlspecialchar so long that
+      // the message won't be intered into HTML code and its just a javascript output
+    echo '<script>alert(" '.htmlspecialchars($error1).' ");</script>';
   }
 
   ////////////////////////////////////////////////////////
 
-  $query="SELECT * FROM voters WHERE emails='$user' ";
-
-  $res=mysqli_query($conn,$query);
+  // to use prepared statment with bound parameters to rettrieve data from database
+$stmt = mysqli_prepare($conn, "SELECT * FROM voters WHERE emails= ?");
+mysqli_stmt_bind_param($stmt, "s", $user);
+mysqli_stmt_execute($stmt);
+  //$query="SELECT * FROM voters WHERE emails='$user' ";
+  $error2= "you have already voted";
+  $res=mysqli_stmt_get_result($stmt);
 
   if (mysqli_num_rows($res) > 0) {
     
     $row = mysqli_fetch_assoc($res);
     if($user==isset($row['emails']))
     {
-            echo htmlspecialchars('<script>alert("you have already voted");</script>');
+            echo '<script>alert(" '.htmlspecialchars($error2).' ");</script>';
             
     }
   
