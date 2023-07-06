@@ -82,7 +82,7 @@ if(isset($_POST['btn']))
   // to use prepared statment with bound parameter
   $stmt= mysqli_prepare($conn, "INSERT INTO voters (id,emails) VALUES (?, ?)");
   mysqli_stmt_bind_param($stmt, "ss", $id, $user);
-  mysqli_stmt_execute($stmt);
+  //mysqli_stmt_execute($stmt);
   //$sql = "INSERT INTO voters (id,emails) VALUES ('$id','$user')";
 
      
