@@ -1,0 +1,53 @@
+:root {
+  /* Core color tokens (change these to theme your app) */
+  --color-primary: #0d6efd; /* blue */
+  --color-secondary: #959ea7; /* gray */
+  --color-success: #198754; /* green */
+  --color-danger: #dc3545; /* red */
+  --color-warning: #ffc107; /* yellow */
+  --color-info: #0dcaf0; /* info */
+  --color-lgray: #c0d7de; /* light gray */
+
+
+  /* Background and text */
+  --color-body-bg: #f5f5f5;
+  --color-body-text: #0D4D4A;
+
+  /* Spacing / layout tokens */
+  --page-padding: 1rem;
+
+  /* Font */
+  --font-family: Avenir, Helvetica, Arial, sans-serif, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+
+    /* button */
+
+
+
+  /* Map to Bootstrap CSS variables so Bootstrap components pick them up */
+  --bs-primary: var(--color-primary);
+  --bs-secondary: var(--color-secondary);
+  --bs-success: var(--color-success);
+  --bs-danger: var(--color-danger);
+  --bs-warning: var(--color-warning);
+  --bs-info: var(--color-info);
+  --bs-body-bg: var(--color-body-bg);
+  --bs-body-color: var(--color-body-text);
+  
+}
+
+/* Navbar-specific variables (change these to theme the navbar) */
+:root {
+  --navbar-bg: var(--color-lgray);
+  --navbar-text: #ffffff;
+}
+
+/* Dark theme example - toggle by adding data-theme="dark" on <html> or <body> */
+:root[data-theme="dark"] {
+  --color-body-bg: #0f1720;
+  --color-body-text: #e6eef6;
+  --bs-body-bg: var(--color-body-bg);
+  --bs-body-color: var(--color-body-text);
+  --bs-primary: #4f9dff;
+}

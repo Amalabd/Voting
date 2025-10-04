@@ -1,0 +1,73 @@
+@import './variables.css';
+
+/* Base page styles using tokens */
+html, body, #app {
+  height: 100%;
+  background-color: var(--color-body-bg);
+  color: var(--color-body-text);
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  text-align: center;
+  color: #2c3e50;
+  /* Add top padding to account for the fixed navbar height so content isn't covered */
+  padding-top: 20px;
+  overflow-y: auto;
+
+}
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Utility to center content and apply page padding */
+.page-container {
+  padding: var(--page-padding);
+}
+
+
+/* Navbar custom class reads color from CSS variable --navbar-bg */
+.navbar-custom {
+  background-color: var(--navbar-bg) !important;
+  color: var(--navbar-text);
+}
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+  color: var(--navbar-text) !important;
+}
+  button {
+  background-color: #0D4D4A;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  
+  }
+button:hover {
+  background-color: #0A3A38;
+}
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px !important;
+}
+.card-header {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  background-color: #3E8D8A;
+  color: white;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+}

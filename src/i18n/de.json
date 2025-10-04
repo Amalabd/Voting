@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "link": "Link",
+    "disabled": "Deaktiviert",
+    "lang": "Sprache",
+    "user": "Benutzer",
+    "profile": "Profil",
+    "signOut": "Abmelden",
+    "search": "Suchen"
+  }
+  ,
+  "welcome": "Willkommen im offiziellen Abstimmungszentrum",
+  "note": "Bitte beachten Sie, dass Sie nur einmal abstimmen dürfen!",
+  "login": "Anmelden",
+  "password": "Passwort",
+  "startVoting": "Abstimmung starten",
+  "chooseCandidate": "Wählen Sie Ihren Kandidaten aus und geben Sie Ihre Stimme ein",
+  "submit": "Absenden",
+  "cantVote": "Sie haben schon einmal abgestimmt! Sie können nicht erneut abstimmen.",
+  "forTrial": "Für die Testversion",
+  "remaining": "Verbleibende Stimmen"
+}

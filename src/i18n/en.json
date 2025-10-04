@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "link": "Link",
+    "disabled": "Disabled",
+    "lang": "Language",
+    "user": "User",
+    "profile": "Profile",
+    "signOut": "Sign Out",
+    "search": "Search"
+  }
+  ,
+  "welcome": "Welcome to the official voting hub",
+  "note": "please note that you are only allowed to vote once",
+  "login": "Login",
+  "password": "Password",
+  "startVoting": "Start Voting",
+  "chooseCandidate": "Choose your candidate and submit your vote",
+  "submit": "Submit",
+  "cantVote": "You have already voted! You cannot vote again",
+  "forTrial": "For trial purposes",
+  "remaining": "Remaining votes"
+}
